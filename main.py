@@ -2,7 +2,7 @@ from tkinter import *
 from time import sleep
 from secrets import randbelow
 import threading
-
+from sorts import *
 
 class SortingVisualization:
     def __init__(self, root):
@@ -28,23 +28,7 @@ class SortingVisualization:
             self.columns.append(column)
             xoff+=10
         self.canvas.pack(fill=BOTH, expand=1)
-        self.bubbleSort()
-
-    def bubbleSort(self):
-        print('Sort')
-        n = len(self.numbersToSort)
-        for i in range(n):
-            for j in range(0, n-i-1):
-                self.canvas.itemconfig(self.columns[j], fill='red')
-                self.canvas.itemconfig(self.columns[j+1], fill='red')
-                if (self.numbersToSort[j] > self.numbersToSort[j+1]):
-                    self.swap_two_pos(self.columns[j], self.columns[j+1])
-                    self.columns[j], self.columns[j+1] = self.columns[j+1], self.columns[j]
-                    self.numbersToSort[j], self.numbersToSort[j+1] = self.numbersToSort[j+1], self.numbersToSort[j]
-                if(self.columns[j] != self.columns[i]):
-                    self.canvas.itemconfig(self.columns[j], fill='orange')
-            self.canvas.itemconfig(self.columns[n-i-1], fill='green')
-        print('Sorted')
+        bubbleSort(self)
     
     def swap_two_pos(self, pos_0, pos_1):
         x_00, _, x_01, _ = self.canvas.coords(pos_0)
