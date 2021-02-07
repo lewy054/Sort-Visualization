@@ -1,5 +1,5 @@
 from timer import myTimer
-from sorting_helpers import draw, generate_numbers, swap_two_columns
+from sorting_helpers import change_two_columns_color_orange, change_two_columns_color_red, draw, generate_numbers, swap_two_columns
 import tkinter as tk
 import threading
 
@@ -22,12 +22,12 @@ class BubbleSort(tk.Frame):
         n = len(self.numbers_to_sort)
         for i in range(n):
             for j in range(0, n-i-1):
-                self.canvas.itemconfig(self.columns[j], fill='red')
-                self.canvas.itemconfig(self.columns[j+1], fill='red')
+                change_two_columns_color_red(j, j+1, self.canvas, self.columns)
                 if (self.numbers_to_sort[j] > self.numbers_to_sort[j+1]):
                     swap_two_columns(self.columns[j], self.columns[j+1], self.canvas)
                     self.columns[j], self.columns[j+1] = self.columns[j+1], self.columns[j]
                     self.numbers_to_sort[j], self.numbers_to_sort[j+1] = self.numbers_to_sort[j+1], self.numbers_to_sort[j]
+                change_two_columns_color_orange(j, j+1, self.canvas, self.columns)
                 if(self.columns[j] != self.columns[i]):
                     self.canvas.itemconfig(self.columns[j], fill='orange')
             self.canvas.itemconfig(self.columns[n-i-1], fill='green')

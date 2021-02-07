@@ -25,3 +25,11 @@ def swap_two_columns(col1, col2, canvas):
     x_10, _, x_11, _ = canvas.coords(col2)
     canvas.move(col1, x_10-x_00, 0)
     canvas.move(col2, x_01-x_11, 0)
+
+def change_two_columns_color_red(col1, col2, canvas, columns):
+    canvas.itemconfig(columns[col1], fill='red')
+    canvas.itemconfig(columns[col2], fill='red')
+
+def change_two_columns_color_orange(col1, col2, canvas, columns):
+    canvas.itemconfig(columns[col1], fill='orange')
+    canvas.itemconfig(columns[col2], fill='orange')
