@@ -20,7 +20,7 @@ def draw(numbers_to_sort):
         xoff += column_width
     return (canvas, columns)
 
-def swapTwoColumns(col1, col2, canvas):
+def swap_two_columns(col1, col2, canvas):
     x_00, _, x_01, _ = canvas.coords(col1)
     x_10, _, x_11, _ = canvas.coords(col2)
     canvas.move(col1, x_10-x_00, 0)

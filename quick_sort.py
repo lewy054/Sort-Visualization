@@ -1,7 +1,7 @@
-from secrets import randbelow
+from timer import myTimer
 import tkinter as tk
 import threading
-from sorting_helpers import draw, generate_numbers, swapTwoColumns
+from sorting_helpers import draw, generate_numbers, swap_two_columns
 
 
 class QuickSort(tk.Frame):
@@ -11,6 +11,7 @@ class QuickSort(tk.Frame):
         self.main()
 
     def main(self):
+        self.timer = myTimer(self.master)
         self.numbers_to_sort = generate_numbers()
         self.canvas, self.columns = draw(self.numbers_to_sort)
         self.canvas.pack(fill=tk.BOTH, expand=1)
@@ -31,7 +32,7 @@ class QuickSort(tk.Frame):
                 self.canvas.itemconfig(self.columns[low], fill='red')
                 self.canvas.itemconfig(self.columns[high], fill='red')
                 self.numbers_to_sort[low], self.numbers_to_sort[high] = self.numbers_to_sort[high], self.numbers_to_sort[low]
-                swapTwoColumns(self.columns[low], self.columns[high], self.canvas)
+                swap_two_columns(self.columns[low], self.columns[high], self.canvas)
                 self.columns[low], self.columns[high] = self.columns[high], self.columns[low]
                 self.canvas.itemconfig(self.columns[low], fill='orange')
                 self.canvas.itemconfig(self.columns[high], fill='orange')
@@ -39,12 +40,14 @@ class QuickSort(tk.Frame):
                 break
 
         self.numbers_to_sort[start], self.numbers_to_sort[high] = self.numbers_to_sort[high], self.numbers_to_sort[start]
-        swapTwoColumns(self.columns[start], self.columns[high], self.canvas)
+        swap_two_columns(self.columns[start], self.columns[high], self.canvas)
         self.columns[start], self.columns[high] = self.columns[high], self.columns[start]
         return high
 
     def quick_sort(self, start, end):
         if start >= end:
+            if(end == len(self.numbers_to_sort) - 1):
+                self.timer.stop()
             return
 
         p = self.partition(start, end)
