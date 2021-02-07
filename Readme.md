@@ -16,6 +16,7 @@ This project shows speed and how various sorting algorithms works.
 ## Sorting algorithms available
 - BubbleSort
 - QuickSort
+- SelectionSort
 
 ## Technologies
 Project is created with:

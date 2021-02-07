@@ -1,3 +1,4 @@
+from selection_sort import SelectionSort
 import threading
 import tkinter as tk
 from tkinter import ttk
@@ -25,7 +26,8 @@ class Menu(tk.Frame):
         self.box_value = tk.StringVar()
         self.sort_type = ttk.Combobox(self, width=27, textvariable=self.box_value, state="readonly")
         self.sort_type['values'] = ('QuickSort',
-                                    'BubbleSort')
+                                    'BubbleSort',
+                                    'SelectionSort')
         self.sort_type.current(0)
         self.sort_type.pack()
 
@@ -40,6 +42,8 @@ class Menu(tk.Frame):
             self.master.change(BubbleSort)
         elif(selected_sort == 'QuickSort'):
             self.master.change(QuickSort)
+        elif(selected_sort == 'SelectionSort'):
+            self.master.change(SelectionSort)
 
 def main():
     root = Menu()
