@@ -1,3 +1,4 @@
+from heap_sort import HeapSort
 from selection_sort import SelectionSort
 import threading
 import tkinter as tk
@@ -5,6 +6,7 @@ from tkinter import ttk
 from tkinter import font
 from quick_sort import QuickSort
 from bubble_sort import BubbleSort
+
 
 class Menu(tk.Frame):
     def __init__(self, master=None, **kwargs):
@@ -14,10 +16,9 @@ class Menu(tk.Frame):
         self.create_buttons()
 
     def create_title(self):
-        title = tk.Label(self, text="Sort Visualization", fg = 'blue')
+        title = tk.Label(self, text="Sort Visualization", fg='blue')
         title.config(font=("Helvetica", 44))
         title.pack(pady=30)
-
 
     def create_combobox(self):
         combo_label = tk.Label(self, text="Select type of sorting :", font=24)
@@ -27,7 +28,8 @@ class Menu(tk.Frame):
         self.sort_type = ttk.Combobox(self, width=27, textvariable=self.box_value, state="readonly")
         self.sort_type['values'] = ('QuickSort',
                                     'BubbleSort',
-                                    'SelectionSort')
+                                    'SelectionSort',
+                                    'HeapSort')
         self.sort_type.current(0)
         self.sort_type.pack()
 
@@ -44,6 +46,9 @@ class Menu(tk.Frame):
             self.master.change(QuickSort)
         elif(selected_sort == 'SelectionSort'):
             self.master.change(SelectionSort)
+        elif(selected_sort == 'HeapSort'):
+            self.master.change(HeapSort)
+
 
 def main():
     root = Menu()

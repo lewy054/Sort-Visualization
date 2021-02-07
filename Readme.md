@@ -17,6 +17,7 @@ This project shows speed and how various sorting algorithms works.
 - BubbleSort
 - QuickSort
 - SelectionSort
+- HeapSort
 
 ## Technologies
 Project is created with:
