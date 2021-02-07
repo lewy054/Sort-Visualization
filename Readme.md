@@ -1,4 +1,4 @@
-#Sorting algorithms - Visualization
+# Sorting algorithms - Visualization
 
 ## Table of contents
 * [General info](#general-info)
