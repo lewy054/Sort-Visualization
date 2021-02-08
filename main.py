@@ -1,6 +1,7 @@
 from menu import Menu
 import tkinter as tk
 
+
 class Mainframe(tk.Tk):
     def __init__(self):
         tk.Tk.__init__(self)
@@ -13,6 +14,7 @@ class Mainframe(tk.Tk):
         self.frame.pack_forget()
         self.frame = frame(self)
         self.frame.pack()
+
 
 def main():
     root = Mainframe()

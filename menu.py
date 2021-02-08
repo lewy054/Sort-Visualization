@@ -1,11 +1,11 @@
+from coctail_shaker_sort import CoctailShakerSort
 from heap_sort import HeapSort
 from selection_sort import SelectionSort
-import threading
 import tkinter as tk
 from tkinter import ttk
-from tkinter import font
 from quick_sort import QuickSort
 from bubble_sort import BubbleSort
+from bubble_sort_recursive import BubbleSortRecursive
 
 
 class Menu(tk.Frame):
@@ -28,8 +28,10 @@ class Menu(tk.Frame):
         self.sort_type = ttk.Combobox(self, width=27, textvariable=self.box_value, state="readonly")
         self.sort_type['values'] = ('QuickSort',
                                     'BubbleSort',
+                                    'BubbleSortRecursive',
                                     'SelectionSort',
-                                    'HeapSort')
+                                    'HeapSort',
+                                    'CoctailShakerSort')
         self.sort_type.current(0)
         self.sort_type.pack()
 
@@ -48,6 +50,10 @@ class Menu(tk.Frame):
             self.master.change(SelectionSort)
         elif(selected_sort == 'HeapSort'):
             self.master.change(HeapSort)
+        elif(selected_sort == 'BubbleSortRecursive'):
+            self.master.change(BubbleSortRecursive)
+        elif(selected_sort == 'CoctailShakerSort'):
+            self.master.change(CoctailShakerSort)
 
 
 def main():

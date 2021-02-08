@@ -14,10 +14,12 @@ This project shows speed and how various sorting algorithms works.
 ![Imgur Image](https://i.imgur.com/QyoQvE5.png)
 
 ## Sorting algorithms available
-- BubbleSort
 - QuickSort
+- BubbleSort
+- BubbleSortRecursive
 - SelectionSort
 - HeapSort
+- CoctailShakerSort
 
 ## Technologies
 Project is created with:
@@ -25,3 +27,7 @@ Project is created with:
 
 ## Setup
 Download this repository, install dependencies from requirements.txt and run main.py
+
+## Known issues
+- Cannot close program if sorting is not completed
+- There is no button to return to the menu from the sorting screen

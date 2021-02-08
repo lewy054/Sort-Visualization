@@ -25,22 +25,22 @@ class QuickSort(tk.Frame):
 
         while True:
             while low <= high and self.numbers_to_sort[high] >= pivot:
+                self.canvas.itemconfig(self.columns[high], fill='red')
+                self.canvas.itemconfig(self.columns[high], fill='orange')
                 high = high - 1
             while low <= high and self.numbers_to_sort[low] <= pivot:
+                self.canvas.itemconfig(self.columns[low], fill='red')
+                self.canvas.itemconfig(self.columns[low], fill='orange')
                 low = low + 1
             if low <= high:
-                change_two_columns_color_red(low, high, self.canvas, self.columns)
                 self.numbers_to_sort[low], self.numbers_to_sort[high] = self.numbers_to_sort[high], self.numbers_to_sort[low]
                 swap_two_columns(self.columns[low], self.columns[high], self.canvas)
                 self.columns[low], self.columns[high] = self.columns[high], self.columns[low]
-                change_two_columns_color_orange(low, high, self.canvas, self.columns)
             else:
                 break
-        change_two_columns_color_red(start, high, self.canvas, self.columns)
         self.numbers_to_sort[start], self.numbers_to_sort[high] = self.numbers_to_sort[high], self.numbers_to_sort[start]
         swap_two_columns(self.columns[start], self.columns[high], self.canvas)
         self.columns[start], self.columns[high] = self.columns[high], self.columns[start]
-        change_two_columns_color_orange(start, high, self.canvas, self.columns)
         return high
 
     def quick_sort(self, start, end):
