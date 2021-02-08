@@ -5,6 +5,7 @@
 * [Sorting algorithms available](#sorting-algorithms-available)
 * [Technologies](#technologies)
 * [Setup](#setup)
+* [Known issues](#known-issues)
 
 ## General info
 This project shows speed and how various sorting algorithms works.
@@ -29,5 +30,5 @@ Project is created with:
 Download this repository, install dependencies from requirements.txt and run main.py
 
 ## Known issues
-- Cannot close program if sorting is not completed
+- Cannot close program if sorting is not completed(thread problem)
 - There is no button to return to the menu from the sorting screen
